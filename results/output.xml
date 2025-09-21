@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.0 on win32)" generated="2025-09-19T14:11:29.096074" rpa="false" schemaversion="5">
+<suite id="s1" name="Headers" source="C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\tests\robot\headers.robot">
+<test id="s1-t1" name="Check Headers Endpoint" line="10">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-19T14:11:29.342651" level="INFO">Creating Session using : alias=httpbin, url=https://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>httpbin</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-19T14:11:29.342651" elapsed="0.000000"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-09-19T14:11:32.433323" level="INFO">GET Request : url=https://httpbin.org/headers 
+ path_url=/headers 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Test': 'RobotFramework'} 
+ body=None 
+ </msg>
+<msg time="2025-09-19T14:11:32.433323" level="INFO">GET Response : url=https://httpbin.org/headers 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 19 Sep 2025 08:41:32 GMT', 'Content-Type': 'application/json', 'Content-Length': '258', 'Connection': 'keep-alive', 'Server': 'gunicorn/19.9.0', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true'} 
+ body={
+  "headers": {
+    "Accept": "*/*", 
+    "Accept-Encoding": "gzip, deflate", 
+    "Host": "httpbin.org", 
+    "User-Agent": "python-requests/2.32.5", 
+    "X-Amzn-Trace-Id": "Root=1-68cd173a-02e5d66210c109de3fbfd7d6", 
+    "X-Test": "RobotFramework"
+  }
+}
+ 
+ </msg>
+<msg time="2025-09-19T14:11:32.433323" level="INFO">C:\Users\aryamol.m.DC\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'httpbin.org'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-09-19T14:11:32.433830" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<var>${resp}</var>
+<arg>httpbin</arg>
+<arg>/headers</arg>
+<arg>headers=${HEADERS}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-19T14:11:29.342651" elapsed="3.091179"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-09-19T14:11:32.435839" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-09-19T14:11:32.434839" elapsed="0.001000"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2025-09-19T14:11:32.435839" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-09-19T14:11:32.436840" level="INFO">To JSON using : content={
+  "headers": {
+    "Accept": "*/*", 
+    "Accept-Encoding": "gzip, deflate", 
+    "Host": "httpbin.org", 
+    "User-Agent": "python-requests/2.32.5", 
+    "X-Amzn-Trace-Id": "Root=1-68cd173a-02e5d66210c109de3fbfd7d6", 
+    "X-Test": "RobotFramework"
+  }
+}
+ </msg>
+<msg time="2025-09-19T14:11:32.436840" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2025-09-19T14:11:32.436840" level="INFO">${json} = {'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68cd173a-02e5d66210c109de3fbfd7d6', 'X-Test'...</msg>
+<var>${json}</var>
+<arg>${resp.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2025-09-19T14:11:32.435839" elapsed="0.001001"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${json}</arg>
+<arg>headers</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-09-19T14:11:32.436840" elapsed="0.001000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${json['headers']['X-Test']}</arg>
+<arg>RobotFramework</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-09-19T14:11:32.437840" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-09-19T14:11:29.341648" elapsed="3.097191"/>
+</test>
+<status status="PASS" start="2025-09-19T14:11:29.098380" elapsed="3.340459"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Headers">Headers</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-09-19T14:11:32.435839" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+</errors>
+</robot>

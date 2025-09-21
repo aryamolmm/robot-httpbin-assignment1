@@ -1,0 +1,9 @@
+robotframework==7.1.1
+robotframework-requests
+robotframework-seleniumlibrary
+robotframework-datadriver
+requests
+Faker
+python-dotenv
+PyYAML
+allure-robotframework

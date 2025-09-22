@@ -1,8 +1,9 @@
 pipeline {
-    agent any
-
-    tools {
-        python 'Python3'   // Make sure Python is configured in Jenkins global tools
+    agent {
+        docker {
+            image 'python:3.11-slim'
+            args '-u root:root'
+        }
     }
 
     stages {
@@ -14,8 +15,8 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'pip install --upgrade pip'
-                sh 'pip install -r requirements.txt'
+                sh 'python3 -m pip install --upgrade pip'
+                sh 'python3 -m pip install -r requirements.txt'
             }
         }
 

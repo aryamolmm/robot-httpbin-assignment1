@@ -1,0 +1,12 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Robot Framework outputs
+log.html
+output.xml
+report.html
+output/
+
+# Virtual environment
+.venv/

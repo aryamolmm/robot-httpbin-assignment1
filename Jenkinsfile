@@ -31,7 +31,7 @@ stage('Run Robot Framework Tests') {
     steps {
         sh """
         . ${VENV_DIR}/bin/activate
-        robot --output output.xml tests/
+        robot --listener allure_robotframework;ALLURE_RESULTS=${ALLURE_RESULTS} tests/
         """
     }
 }

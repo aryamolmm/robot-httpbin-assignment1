@@ -1,36 +1,36 @@
-name: Robot Framework CI
+name: Robot Tests
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
-    branches: [main]
 
 jobs:
   robot-tests:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.11
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-    - name: Run Robot Framework tests
-      run: |
-        mkdir -p results
-        robot --outputdir results tests/
+      - name: Run Robot Framework tests
+        run: |
+          robot --output output.xml tests/
 
-    - name: Upload Robot results as artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: robot-results
-        path: results/
+      - name: Generate Allure report
+        run: |
+          allure generate output.xml --clean -o allure-report
+
+      - name: Upload Allure report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report

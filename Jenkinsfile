@@ -16,29 +16,25 @@ pipeline {
         }
 
         stage('Install Dependencies') {
-            steps {
-                sh """
-                # Create Python virtual environment
-                python3 -m venv ${VENV_DIR}
-                source ${VENV_DIR}/bin/activate
+    steps {
+        sh """
+        python3 -m venv ${VENV_DIR}
+        . ${VENV_DIR}/bin/activate
 
-                # Upgrade pip
-                pip install --upgrade pip
+        pip install --upgrade pip
+        pip install -r requirements.txt
+        """
+    }
+}
 
-                # Install Robot Framework and other dependencies
-                pip install -r requirements.txt
-                """
-            }
-        }
-
-        stage('Run Robot Framework Tests') {
-            steps {
-                sh """
-                source ${VENV_DIR}/bin/activate
-                robot --output output.xml tests/
-                """
-            }
-        }
+stage('Run Robot Framework Tests') {
+    steps {
+        sh """
+        . ${VENV_DIR}/bin/activate
+        robot --output output.xml tests/
+        """
+    }
+}
 
         stage('Generate Allure Report') {
             steps {
@@ -63,6 +59,7 @@ pipeline {
     post {
         always {
             echo "Pipeline finished. Check Allure report for details."
+            archiveArtifacts artifacts: 'allure-results/**', allowEmptyArchive: true
         }
     }
 }

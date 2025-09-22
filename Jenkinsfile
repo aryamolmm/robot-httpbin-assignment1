@@ -1,17 +1,37 @@
-pipeline {
-    agent {
-        docker {
-            image 'python:3.11-slim'
-            args '-u root:root'
-        }
+stage('Install Dependencies') {
+    steps {
+        sh '''
+        python3 -m venv venv
+        source venv/bin/activate
+        pip install --upgrade pip
+        pip install -r requirements.txt
+        '''
     }
+}
 
-    stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
+stage('Run Robot Framework Tests') {
+    steps {
+        sh '''
+        source venv/bin/activate
+        robot --output output.xml tests/
+        '''
+    }
+}
+
+stage('Generate Allure Report') {
+    steps {
+        sh '''
+        source venv/bin/activate
+        mkdir -p allure-results
+        cp output.xml allure-results/
+        '''
+    }
+    post {
+        always {
+            allure([
+                includeProperties: false,
+                results: [[path: 'allure-results']]
+            ])
         }
-        // other stages...
     }
 }

@@ -1,0 +1,33 @@
+services:
+  api:
+    image: kennethreitz/httpbin   # use official httpbin image
+    ports:
+      - "8000:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/get"]
+      interval: 5s
+      retries: 5
+      timeout: 2s
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"   # broker port
+      - "15672:15672" # management UI (http://localhost:15672)
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 5s
+      retries: 5
+      timeout: 2s
+
+  tests:
+    build: .
+    depends_on:
+      api:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    volumes:
+      - .:/tests
+    working_dir: /tests
+    command: robot -d reports tests/

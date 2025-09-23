@@ -2,8 +2,8 @@
 Library    ../resources/httpbin_library.py
 Resource    ../resources/keywords.robot
 Resource    resources/data_generator.robot
-Library    data_generator.py    WITH NAME    dg
-Library    httpbin_library.py   WITH NAME    hl
+Library    ../data_generator.py    WITH NAME    dg
+Library    ../httpbin_library.py   WITH NAME    hl
 *** Test Cases ***
 #Test GET Headers with Retry
 #    Create HTTP Session

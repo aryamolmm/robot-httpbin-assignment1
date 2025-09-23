@@ -1,391 +1,435 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.0 on win32)" generated="2025-09-21T16:16:40.454110" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.12.0 on win32)" generated="2025-09-22T16:00:30.592234" rpa="false" schemaversion="5">
 <suite id="s1" name="Tests" source="C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\tests">
 <suite id="s1-s1" name="Headers" source="C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\tests\headers.robot">
 <test id="s1-s1-t1" name="Test GET Headers" line="23">
 <kw name="Create HTTP Session" owner="keywords">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-09-21T16:16:41.868956" level="INFO">Creating Session using : alias=httpbin, url=https://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-09-22T16:00:31.854852" level="INFO">Creating Session using : alias=httpbin, url=https://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>${session_name}</arg>
 <arg>https://httpbin.org</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-09-21T16:16:41.867953" elapsed="0.001003"/>
+<status status="PASS" start="2025-09-22T16:00:31.853760" elapsed="0.001092"/>
 </kw>
 <arg>httpbin</arg>
-<status status="PASS" start="2025-09-21T16:16:41.866914" elapsed="0.004995"/>
+<status status="PASS" start="2025-09-22T16:00:31.852759" elapsed="0.005198"/>
 </kw>
 <kw name="Get Headers" owner="keywords">
 <kw name="Get Request" owner="RequestsLibrary">
-<msg time="2025-09-21T16:16:41.872910" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
-<msg time="2025-09-21T16:16:43.465365" level="INFO">GET Request : url=https://httpbin.org/headers 
+<msg time="2025-09-22T16:00:31.859487" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-09-22T16:00:37.542014" level="INFO">GET Request : url=https://httpbin.org/headers 
  path_url=/headers 
  headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg time="2025-09-21T16:16:43.465365" level="INFO">GET Response : url=https://httpbin.org/headers 
+<msg time="2025-09-22T16:00:37.543003" level="INFO">GET Response : url=https://httpbin.org/headers 
  status=200, reason=OK 
- headers={'Date': 'Sun, 21 Sep 2025 10:46:41 GMT', 'Content-Type': 'application/json', 'Content-Length': '225', 'Connection': 'keep-alive', 'Server': 'gunicorn/19.9.0', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true'} 
+ headers={'Date': 'Mon, 22 Sep 2025 10:30:37 GMT', 'Content-Type': 'application/json', 'Content-Length': '225', 'Connection': 'keep-alive', 'Server': 'gunicorn/19.9.0', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true'} 
  body={
   "headers": {
     "Accept": "*/*", 
     "Accept-Encoding": "gzip, deflate", 
     "Host": "httpbin.org", 
     "User-Agent": "python-requests/2.32.5", 
-    "X-Amzn-Trace-Id": "Root=1-68cfd791-37fdeebe0831bbea393a472f"
+    "X-Amzn-Trace-Id": "Root=1-68d12549-10080d2e04bf25950956f458"
   }
 }
  
  </msg>
-<msg time="2025-09-21T16:16:43.465365" level="INFO">C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'httpbin.org'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg time="2025-09-22T16:00:37.543003" level="INFO">C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'httpbin.org'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   warnings.warn(</msg>
-<msg time="2025-09-21T16:16:43.466369" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<msg time="2025-09-22T16:00:37.543958" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
 <var>${resp}</var>
 <arg>${session_name}</arg>
 <arg>/headers</arg>
 <doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
-<status status="PASS" start="2025-09-21T16:16:41.872910" elapsed="1.593459"/>
+<status status="PASS" start="2025-09-22T16:00:31.858481" elapsed="5.685477"/>
 </kw>
 <kw name="To Json" owner="RequestsLibrary">
-<msg time="2025-09-21T16:16:43.469407" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
-<msg time="2025-09-21T16:16:43.470362" level="INFO">To JSON using : content={
+<msg time="2025-09-22T16:00:37.547999" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-09-22T16:00:37.551572" level="INFO">To JSON using : content={
   "headers": {
     "Accept": "*/*", 
     "Accept-Encoding": "gzip, deflate", 
     "Host": "httpbin.org", 
     "User-Agent": "python-requests/2.32.5", 
-    "X-Amzn-Trace-Id": "Root=1-68cfd791-37fdeebe0831bbea393a472f"
+    "X-Amzn-Trace-Id": "Root=1-68d12549-10080d2e04bf25950956f458"
   }
 }
  </msg>
-<msg time="2025-09-21T16:16:43.470362" level="INFO">To JSON using : pretty_print=False </msg>
-<msg time="2025-09-21T16:16:43.470362" level="INFO">${json} = {'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68cfd791-37fdeebe0831bbea393a472f'}}</msg>
+<msg time="2025-09-22T16:00:37.551572" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2025-09-22T16:00:37.551572" level="INFO">${json} = {'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68d12549-10080d2e04bf25950956f458'}}</msg>
 <var>${json}</var>
 <arg>${resp.content}</arg>
 <doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
-<status status="PASS" start="2025-09-21T16:16:43.468364" elapsed="0.001998"/>
+<status status="PASS" start="2025-09-22T16:00:37.547999" elapsed="0.003573"/>
 </kw>
 <kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-09-21T16:16:43.473360" level="INFO">${headers} = {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68cfd791-37fdeebe0831bbea393a472f'}</msg>
+<msg time="2025-09-22T16:00:37.555863" level="INFO">${headers} = {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68d12549-10080d2e04bf25950956f458'}</msg>
 <var>${headers}</var>
 <arg>${json}</arg>
 <arg>headers</arg>
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-09-21T16:16:43.473360" elapsed="0.000000"/>
+<status status="PASS" start="2025-09-22T16:00:37.555863" elapsed="0.000000"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-09-21T16:16:43.477364" level="INFO">{'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68cfd791-37fdeebe0831bbea393a472f'}</msg>
+<msg time="2025-09-22T16:00:37.561884" level="INFO">{'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68d12549-10080d2e04bf25950956f458'}</msg>
 <arg>${headers}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-21T16:16:43.476362" elapsed="0.001002"/>
+<status status="PASS" start="2025-09-22T16:00:37.560365" elapsed="0.001519"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${headers}</arg>
 <arg>Host</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-09-21T16:16:43.480375" elapsed="0.000000"/>
+<status status="PASS" start="2025-09-22T16:00:37.565904" elapsed="0.001001"/>
 </kw>
 <arg>httpbin</arg>
-<status status="PASS" start="2025-09-21T16:16:41.871909" elapsed="1.608466"/>
+<status status="PASS" start="2025-09-22T16:00:31.858481" elapsed="5.708424"/>
 </kw>
-<status status="PASS" start="2025-09-21T16:16:41.865987" elapsed="1.615432"/>
+<status status="PASS" start="2025-09-22T16:00:31.851761" elapsed="5.716138"/>
 </test>
-<status status="PASS" start="2025-09-21T16:16:40.626182" elapsed="2.858210"/>
+<status status="PASS" start="2025-09-22T16:00:30.765471" elapsed="6.806721"/>
 </suite>
 <suite id="s1-s2" name="Post Data" source="C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\tests\post_data.robot">
 <test id="s1-s2-t1" name="Test POST Random Data" line="5">
 <kw name="Create HTTP Session" owner="keywords">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-09-21T16:16:43.508947" level="INFO">Creating Session using : alias=httpbin, url=https://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-09-22T16:00:37.604549" level="INFO">Creating Session using : alias=httpbin, url=https://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>${session_name}</arg>
 <arg>https://httpbin.org</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-09-21T16:16:43.508947" elapsed="0.000000"/>
+<status status="PASS" start="2025-09-22T16:00:37.603537" elapsed="0.001012"/>
 </kw>
 <arg>httpbin</arg>
-<status status="PASS" start="2025-09-21T16:16:43.507963" elapsed="0.003986"/>
+<status status="PASS" start="2025-09-22T16:00:37.603537" elapsed="0.004123"/>
 </kw>
 <kw name="Post Random User Data" owner="keywords">
 <kw name="Generate User Data" owner="data_generator">
-<msg time="2025-09-21T16:16:43.513949" level="INFO">${data} = {'name': 'Darryl Lopez', 'email': 'taylorkathryn@example.com', 'address': '09290 Joy Freeway\nKaramouth, MS 93776', 'phone': '+1-440-809-6440x7529'}</msg>
+<msg time="2025-09-22T16:00:37.609551" level="INFO">${data} = {'name': 'Miss Melinda Mccarty MD', 'email': 'christian02@example.com', 'address': '45299 Jennifer Roads Apt. 421\nAlexandertown, VT 60082', 'phone': '383.282.7101x79245'}</msg>
 <var>${data}</var>
 <doc>Generate random user data dictionary.</doc>
-<status status="PASS" start="2025-09-21T16:16:43.512951" elapsed="0.001995"/>
+<status status="PASS" start="2025-09-22T16:00:37.608551" elapsed="0.001000"/>
 </kw>
 <kw name="Post Request" owner="RequestsLibrary">
-<msg time="2025-09-21T16:16:43.516952" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
-<msg time="2025-09-21T16:16:46.039860" level="INFO">POST Request : url=https://httpbin.org/post 
+<msg time="2025-09-22T16:00:37.613551" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-09-22T16:00:40.125530" level="INFO">POST Request : url=https://httpbin.org/post 
  path_url=/post 
- headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '148', 'Content-Type': 'application/json'} 
- body=b'{"name": "Darryl Lopez", "email": "taylorkathryn@example.com", "address": "09290 Joy Freeway\\nKaramouth, MS 93776", "phone": "+1-440-809-6440x7529"}' 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '171', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Miss Melinda Mccarty MD", "email": "christian02@example.com", "address": "45299 Jennifer Roads Apt. 421\\nAlexandertown, VT 60082", "phone": "383.282.7101x79245"}' 
  </msg>
-<msg time="2025-09-21T16:16:46.039860" level="INFO">POST Response : url=https://httpbin.org/post 
+<msg time="2025-09-22T16:00:40.125530" level="INFO">POST Response : url=https://httpbin.org/post 
  status=200, reason=OK 
- headers={'Date': 'Sun, 21 Sep 2025 10:46:44 GMT', 'Content-Type': 'application/json', 'Content-Length': '774', 'Connection': 'keep-alive', 'Server': 'gunicorn/19.9.0', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true'} 
+ headers={'Date': 'Mon, 22 Sep 2025 10:30:40 GMT', 'Content-Type': 'application/json', 'Content-Length': '821', 'Connection': 'keep-alive', 'Server': 'gunicorn/19.9.0', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true'} 
  body={
   "args": {}, 
-  "data": "{\"name\": \"Darryl Lopez\", \"email\": \"taylorkathryn@example.com\", \"address\": \"09290 Joy Freeway\\nKaramouth, MS 93776\", \"phone\": \"+1-440-809-6440x7529\"}", 
+  "data": "{\"name\": \"Miss Melinda Mccarty MD\", \"email\": \"christian02@example.com\", \"address\": \"45299 Jennifer Roads Apt. 421\\nAlexandertown, VT 60082\", \"phone\": \"383.282.7101x79245\"}", 
   "files": {}, 
   "form": {}, 
   "headers": {
     "Accept": "*/*", 
     "Accept-Encoding": "gzip, deflate", 
-    "Content-Length": "148", 
+    "Content-Length": "171", 
     "Content-Type": "application/json", 
     "Host": "httpbin.org", 
     "User-Agent": "python-requests/2.32.5", 
-    "X-Amzn-Trace-Id": "Root=1-68cfd792-7ab2ad3f0ce448a83718b67e"
+    "X-Amzn-Trace-Id": "Root=1-68d1254e-17bf65a83371671c6fcb107c"
   }, 
   "json": {
-    "address": "09290 Joy Freeway\nKaramouth, MS 93776", 
-    "email": "taylorkathryn@example.com", 
-    "name": "Darryl Lopez", 
-    "phone": "+1-440-809-6440x7529"
+    "address": "45299 Jennifer Roads Apt. 421\nAlexandertown, VT 60082", 
+    "email": "christian02@example.com", 
+    "name": "Miss Melinda Mccarty MD", 
+    "phone": "383.282.7101x79245"
   }, 
-  "origin": "45.249.170.67", 
+  "origin": "103.135.95.118", 
   "url": "https://httpbin.org/post"
 }
  
  </msg>
-<msg time="2025-09-21T16:16:46.039860" level="INFO">C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'httpbin.org'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg time="2025-09-22T16:00:40.126537" level="INFO">C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'httpbin.org'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   warnings.warn(</msg>
-<msg time="2025-09-21T16:16:46.040875" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<msg time="2025-09-22T16:00:40.126537" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
 <var>${resp}</var>
 <arg>${session_name}</arg>
 <arg>/post</arg>
 <arg>json=${data}</arg>
 <doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
-<status status="PASS" start="2025-09-21T16:16:43.516952" elapsed="2.523923"/>
+<status status="PASS" start="2025-09-22T16:00:37.613551" elapsed="2.512986"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-09-21T16:16:46.044876" level="INFO">{'args': {}, 'data': '{"name": "Darryl Lopez", "email": "taylorkathryn@example.com", "address": "09290 Joy Freeway\\nKaramouth, MS 93776", "phone": "+1-440-809-6440x7529"}', 'files': {}, 'form': {}, 'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Content-Length': '148', 'Content-Type': 'application/json', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68cfd792-7ab2ad3f0ce448a83718b67e'}, 'json': {'address': '09290 Joy Freeway\nKaramouth, MS 93776', 'email': 'taylorkathryn@example.com', 'name': 'Darryl Lopez', 'phone': '+1-440-809-6440x7529'}, 'origin': '45.249.170.67', 'url': 'https://httpbin.org/post'}</msg>
+<msg time="2025-09-22T16:00:40.129053" level="INFO">{'args': {}, 'data': '{"name": "Miss Melinda Mccarty MD", "email": "christian02@example.com", "address": "45299 Jennifer Roads Apt. 421\\nAlexandertown, VT 60082", "phone": "383.282.7101x79245"}', 'files': {}, 'form': {}, 'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Content-Length': '171', 'Content-Type': 'application/json', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68d1254e-17bf65a83371671c6fcb107c'}, 'json': {'address': '45299 Jennifer Roads Apt. 421\nAlexandertown, VT 60082', 'email': 'christian02@example.com', 'name': 'Miss Melinda Mccarty MD', 'phone': '383.282.7101x79245'}, 'origin': '103.135.95.118', 'url': 'https://httpbin.org/post'}</msg>
 <arg>${resp.json()}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-21T16:16:46.043869" elapsed="0.001007"/>
+<status status="PASS" start="2025-09-22T16:00:40.129053" elapsed="0.000000"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2025-09-21T16:16:46.047874" level="INFO">Argument types are:
+<msg time="2025-09-22T16:00:40.133419" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
 <arg>${resp.status_code}</arg>
 <arg>200</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-09-21T16:16:46.046869" elapsed="0.001005"/>
+<status status="PASS" start="2025-09-22T16:00:40.132529" elapsed="0.000890"/>
 </kw>
 <arg>httpbin</arg>
-<status status="PASS" start="2025-09-21T16:16:43.512951" elapsed="2.536917"/>
+<status status="PASS" start="2025-09-22T16:00:37.608551" elapsed="2.525870"/>
 </kw>
-<status status="PASS" start="2025-09-21T16:16:43.506947" elapsed="2.543924"/>
+<status status="PASS" start="2025-09-22T16:00:37.602029" elapsed="2.533949"/>
 </test>
-<status status="PASS" start="2025-09-21T16:16:43.490376" elapsed="2.562495"/>
+<status status="PASS" start="2025-09-22T16:00:37.581600" elapsed="2.556389"/>
 </suite>
 <suite id="s1-s3" name="Test Httpbin" source="C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\tests\test_httpbin.robot">
-<test id="s1-s3-t1" name="Test GET Headers with Retry" line="12">
+<test id="s1-s3-t1" name="Test GET Headers with Retry" line="13">
 <kw name="Create HTTP Session" owner="keywords">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-09-21T16:16:46.076965" level="INFO">Creating Session using : alias=httpbin, url=https://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-09-22T16:00:40.155506" level="INFO">Creating Session using : alias=httpbin, url=https://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>${session_name}</arg>
 <arg>https://httpbin.org</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-09-21T16:16:46.076965" elapsed="0.000000"/>
+<status status="PASS" start="2025-09-22T16:00:40.155506" elapsed="0.000000"/>
 </kw>
 <arg>httpbin</arg>
-<status status="PASS" start="2025-09-21T16:16:46.075915" elapsed="0.003066"/>
+<status status="PASS" start="2025-09-22T16:00:40.154506" elapsed="0.003516"/>
 </kw>
 <kw name="Get Headers" owner="keywords">
 <kw name="Get Request" owner="RequestsLibrary">
-<msg time="2025-09-21T16:16:46.080873" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
-<msg time="2025-09-21T16:16:49.901991" level="INFO">GET Request : url=https://httpbin.org/headers 
+<msg time="2025-09-22T16:00:40.159018" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-09-22T16:00:42.887295" level="INFO">GET Request : url=https://httpbin.org/headers 
  path_url=/headers 
  headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg time="2025-09-21T16:16:49.901991" level="INFO">GET Response : url=https://httpbin.org/headers 
+<msg time="2025-09-22T16:00:42.887295" level="INFO">GET Response : url=https://httpbin.org/headers 
  status=200, reason=OK 
- headers={'Date': 'Sun, 21 Sep 2025 10:46:47 GMT', 'Content-Type': 'application/json', 'Content-Length': '225', 'Connection': 'keep-alive', 'Server': 'gunicorn/19.9.0', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true'} 
+ headers={'Date': 'Mon, 22 Sep 2025 10:30:42 GMT', 'Content-Type': 'application/json', 'Content-Length': '225', 'Connection': 'keep-alive', 'Server': 'gunicorn/19.9.0', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true'} 
  body={
   "headers": {
     "Accept": "*/*", 
     "Accept-Encoding": "gzip, deflate", 
     "Host": "httpbin.org", 
     "User-Agent": "python-requests/2.32.5", 
-    "X-Amzn-Trace-Id": "Root=1-68cfd795-4f3f08cb3dbfbfd2626d9d3f"
+    "X-Amzn-Trace-Id": "Root=1-68d12551-2a35547448509749093365bd"
   }
 }
  
  </msg>
-<msg time="2025-09-21T16:16:49.901991" level="INFO">C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'httpbin.org'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg time="2025-09-22T16:00:42.887295" level="INFO">C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'httpbin.org'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   warnings.warn(</msg>
-<msg time="2025-09-21T16:16:49.902989" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<msg time="2025-09-22T16:00:42.888282" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
 <var>${resp}</var>
 <arg>${session_name}</arg>
 <arg>/headers</arg>
 <doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
-<status status="PASS" start="2025-09-21T16:16:46.080873" elapsed="3.822116"/>
+<status status="PASS" start="2025-09-22T16:00:40.159018" elapsed="2.729264"/>
 </kw>
 <kw name="To Json" owner="RequestsLibrary">
-<msg time="2025-09-21T16:16:49.906580" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
-<msg time="2025-09-21T16:16:49.907575" level="INFO">To JSON using : content={
+<msg time="2025-09-22T16:00:42.892843" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-09-22T16:00:42.895427" level="INFO">To JSON using : content={
   "headers": {
     "Accept": "*/*", 
     "Accept-Encoding": "gzip, deflate", 
     "Host": "httpbin.org", 
     "User-Agent": "python-requests/2.32.5", 
-    "X-Amzn-Trace-Id": "Root=1-68cfd795-4f3f08cb3dbfbfd2626d9d3f"
+    "X-Amzn-Trace-Id": "Root=1-68d12551-2a35547448509749093365bd"
   }
 }
  </msg>
-<msg time="2025-09-21T16:16:49.907575" level="INFO">To JSON using : pretty_print=False </msg>
-<msg time="2025-09-21T16:16:49.907575" level="INFO">${json} = {'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68cfd795-4f3f08cb3dbfbfd2626d9d3f'}}</msg>
+<msg time="2025-09-22T16:00:42.895427" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2025-09-22T16:00:42.895427" level="INFO">${json} = {'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68d12551-2a35547448509749093365bd'}}</msg>
 <var>${json}</var>
 <arg>${resp.content}</arg>
 <doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
-<status status="PASS" start="2025-09-21T16:16:49.906580" elapsed="0.000995"/>
+<status status="PASS" start="2025-09-22T16:00:42.892843" elapsed="0.002584"/>
 </kw>
 <kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-09-21T16:16:49.910516" level="INFO">${headers} = {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68cfd795-4f3f08cb3dbfbfd2626d9d3f'}</msg>
+<msg time="2025-09-22T16:00:42.900925" level="INFO">${headers} = {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68d12551-2a35547448509749093365bd'}</msg>
 <var>${headers}</var>
 <arg>${json}</arg>
 <arg>headers</arg>
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-09-21T16:16:49.910516" elapsed="0.000000"/>
+<status status="PASS" start="2025-09-22T16:00:42.900412" elapsed="0.000513"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-09-21T16:16:49.913518" level="INFO">{'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68cfd795-4f3f08cb3dbfbfd2626d9d3f'}</msg>
+<msg time="2025-09-22T16:00:42.904943" level="INFO">{'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68d12551-2a35547448509749093365bd'}</msg>
 <arg>${headers}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-21T16:16:49.913518" elapsed="0.001094"/>
+<status status="PASS" start="2025-09-22T16:00:42.903941" elapsed="0.001002"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${headers}</arg>
 <arg>Host</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-09-21T16:16:49.917555" elapsed="0.000000"/>
+<status status="PASS" start="2025-09-22T16:00:42.908938" elapsed="0.000000"/>
 </kw>
 <arg>httpbin</arg>
-<status status="PASS" start="2025-09-21T16:16:46.079872" elapsed="3.837683"/>
+<status status="PASS" start="2025-09-22T16:00:40.158022" elapsed="2.750916"/>
 </kw>
-<status status="PASS" start="2025-09-21T16:16:46.074873" elapsed="3.843688"/>
+<status status="PASS" start="2025-09-22T16:00:40.154506" elapsed="2.755434"/>
 </test>
-<test id="s1-s3-t2" name="Test GET Headers" line="16">
+<test id="s1-s3-t2" name="Test GET Headers" line="17">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-09-21T16:16:49.922519" level="INFO">Creating Session using : alias=httpbin, url=https://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-09-22T16:00:42.916568" level="INFO">Creating Session using : alias=httpbin, url=https://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>httpbin</arg>
 <arg>https://httpbin.org</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-09-21T16:16:49.922519" elapsed="0.000000"/>
+<status status="PASS" start="2025-09-22T16:00:42.915552" elapsed="0.001016"/>
 </kw>
 <kw name="Get Request" owner="RequestsLibrary">
-<msg time="2025-09-21T16:16:49.925572" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
-<msg time="2025-09-21T16:16:52.166013" level="INFO">GET Request : url=https://httpbin.org/headers 
+<msg time="2025-09-22T16:00:42.922079" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-09-22T16:00:44.066427" level="INFO">GET Request : url=https://httpbin.org/headers 
  path_url=/headers 
  headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg time="2025-09-21T16:16:52.166013" level="INFO">GET Response : url=https://httpbin.org/headers 
+<msg time="2025-09-22T16:00:44.066427" level="INFO">GET Response : url=https://httpbin.org/headers 
  status=200, reason=OK 
- headers={'Date': 'Sun, 21 Sep 2025 10:46:50 GMT', 'Content-Type': 'application/json', 'Content-Length': '225', 'Connection': 'keep-alive', 'Server': 'gunicorn/19.9.0', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true'} 
+ headers={'Date': 'Mon, 22 Sep 2025 10:30:43 GMT', 'Content-Type': 'application/json', 'Content-Length': '225', 'Connection': 'keep-alive', 'Server': 'gunicorn/19.9.0', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true'} 
  body={
   "headers": {
     "Accept": "*/*", 
     "Accept-Encoding": "gzip, deflate", 
     "Host": "httpbin.org", 
     "User-Agent": "python-requests/2.32.5", 
-    "X-Amzn-Trace-Id": "Root=1-68cfd799-38a3e53a68c35be602fc15e8"
+    "X-Amzn-Trace-Id": "Root=1-68d12553-75d66aa2243f67d05b4e6574"
   }
 }
  
  </msg>
-<msg time="2025-09-21T16:16:52.167036" level="INFO">C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'httpbin.org'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg time="2025-09-22T16:00:44.067390" level="INFO">C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'httpbin.org'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   warnings.warn(</msg>
-<msg time="2025-09-21T16:16:52.167036" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<msg time="2025-09-22T16:00:44.067390" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
 <var>${resp}</var>
 <arg>httpbin</arg>
 <arg>/headers</arg>
 <doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
-<status status="PASS" start="2025-09-21T16:16:49.925572" elapsed="2.241464"/>
+<status status="PASS" start="2025-09-22T16:00:42.922079" elapsed="1.145311"/>
 </kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-09-21T16:16:52.172028" level="FAIL">Evaluating expression {'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68cfd799-38a3e53a68c35be602fc15e8'}} failed: TypeError: Expression must be string, got dictionary.</msg>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2025-09-22T16:00:44.071024" level="INFO">${json} = {'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68d12553-75d66aa2243f67d05b4e6574'}}</msg>
 <var>${json}</var>
-<arg>${resp.json()}</arg>
-<arg>modules=requests</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="FAIL" start="2025-09-21T16:16:52.171027" elapsed="0.001001">Evaluating expression {'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68cfd799-38a3e53a68c35be602fc15e8'}} failed: TypeError: Expression must be string, got dictionary.</status>
+<arg>${resp}</arg>
+<arg>json</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-09-22T16:00:44.071024" elapsed="0.000000"/>
 </kw>
 <kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:00:44.075070" level="INFO">${headers} = {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68d12553-75d66aa2243f67d05b4e6574'}</msg>
 <var>${headers}</var>
 <arg>${json}</arg>
 <arg>headers</arg>
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="NOT RUN" start="2025-09-21T16:16:52.175027" elapsed="0.000000"/>
+<status status="PASS" start="2025-09-22T16:00:44.074136" elapsed="0.000934"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T16:00:44.078024" level="INFO">{'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68d12553-75d66aa2243f67d05b4e6574'}</msg>
 <arg>${headers}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-09-21T16:16:52.175027" elapsed="0.000000"/>
+<status status="PASS" start="2025-09-22T16:00:44.078024" elapsed="0.000000"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${headers}</arg>
 <arg>Host</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="NOT RUN" start="2025-09-21T16:16:52.176437" elapsed="0.000000"/>
+<status status="PASS" start="2025-09-22T16:00:44.081231" elapsed="0.000000"/>
 </kw>
-<status status="FAIL" start="2025-09-21T16:16:49.921557" elapsed="2.255948">Evaluating expression {'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.32.5', 'X-Amzn-Trace-Id': 'Root=1-68cfd799-38a3e53a68c35be602fc15e8'}} failed: TypeError: Expression must be string, got dictionary.</status>
+<status status="PASS" start="2025-09-22T16:00:42.915042" elapsed="1.166189"/>
 </test>
-<test id="s1-s3-t3" name="Test POST Random User Data with Retry" line="24">
-<kw name="dg.Generate User Data">
-<msg time="2025-09-21T16:16:52.182453" level="FAIL">No keyword with name 'dg.Generate User Data' found.</msg>
-<var>${data}</var>
-<status status="FAIL" start="2025-09-21T16:16:52.182453" elapsed="0.000000">No keyword with name 'dg.Generate User Data' found.</status>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<arg>${data}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-09-21T16:16:52.185452" elapsed="0.000000"/>
-</kw>
+<test id="s1-s3-t3" name="Test POST Random User Data with Retry" line="27">
 <kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-22T16:00:44.084240" level="INFO">Creating Session using : alias=httpbin, url=https://httpbin.org, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>httpbin</arg>
 <arg>https://httpbin.org</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="NOT RUN" start="2025-09-21T16:16:52.186457" elapsed="0.000000"/>
+<status status="PASS" start="2025-09-22T16:00:44.084240" elapsed="0.000000"/>
+</kw>
+<kw name="Generate User Data" owner="data_generator">
+<msg time="2025-09-22T16:00:44.088239" level="INFO">${data} = {'name': 'James Martinez', 'email': 'patricia26@example.org', 'address': '6063 Ward Springs\nLindaside, OK 35833', 'phone': '(200)961-0834'}</msg>
+<var>${data}</var>
+<doc>Generate random user data dictionary.</doc>
+<status status="PASS" start="2025-09-22T16:00:44.087259" elapsed="0.000980"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T16:00:44.091247" level="INFO">{'name': 'James Martinez', 'email': 'patricia26@example.org', 'address': '6063 Ward Springs\nLindaside, OK 35833', 'phone': '(200)961-0834'}</msg>
+<arg>${data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T16:00:44.091247" elapsed="0.000000"/>
 </kw>
 <kw name="Post Request" owner="RequestsLibrary">
-<msg time="2025-09-21T16:16:52.187453" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-09-22T16:00:44.094329" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-09-22T16:00:45.761488" level="INFO">POST Request : url=https://httpbin.org/post 
+ path_url=/post 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '140', 'Content-Type': 'application/json'} 
+ body=b'{"name": "James Martinez", "email": "patricia26@example.org", "address": "6063 Ward Springs\\nLindaside, OK 35833", "phone": "(200)961-0834"}' 
+ </msg>
+<msg time="2025-09-22T16:00:45.761488" level="INFO">POST Response : url=https://httpbin.org/post 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 22 Sep 2025 10:30:45 GMT', 'Content-Type': 'application/json', 'Content-Length': '759', 'Connection': 'keep-alive', 'Server': 'gunicorn/19.9.0', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true'} 
+ body={
+  "args": {}, 
+  "data": "{\"name\": \"James Martinez\", \"email\": \"patricia26@example.org\", \"address\": \"6063 Ward Springs\\nLindaside, OK 35833\", \"phone\": \"(200)961-0834\"}", 
+  "files": {}, 
+  "form": {}, 
+  "headers": {
+    "Accept": "*/*", 
+    "Accept-Encoding": "gzip, deflate", 
+    "Content-Length": "140", 
+    "Content-Type": "application/json", 
+    "Host": "httpbin.org", 
+    "User-Agent": "python-requests/2.32.5", 
+    "X-Amzn-Trace-Id": "Root=1-68d12555-75558562763e32d64346de34"
+  }, 
+  "json": {
+    "address": "6063 Ward Springs\nLindaside, OK 35833", 
+    "email": "patricia26@example.org", 
+    "name": "James Martinez", 
+    "phone": "(200)961-0834"
+  }, 
+  "origin": "103.135.95.118", 
+  "url": "https://httpbin.org/post"
+}
+ 
+ </msg>
+<msg time="2025-09-22T16:00:45.761488" level="INFO">C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'httpbin.org'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-09-22T16:00:45.762490" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
 <var>${resp}</var>
 <arg>httpbin</arg>
 <arg>/post</arg>
 <arg>json=${data}</arg>
 <doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
-<status status="NOT RUN" start="2025-09-21T16:16:52.187453" elapsed="0.000000"/>
+<status status="PASS" start="2025-09-22T16:00:44.094329" elapsed="1.668161"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-09-22T16:00:45.768097" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
 <arg>${resp.status_code}</arg>
 <arg>200</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="NOT RUN" start="2025-09-21T16:16:52.191455" elapsed="0.000000"/>
+<status status="PASS" start="2025-09-22T16:00:45.767489" elapsed="0.000608"/>
 </kw>
 <doc>Test posting random user data with retry logic</doc>
-<status status="FAIL" start="2025-09-21T16:16:52.180452" elapsed="0.011003">No keyword with name 'dg.Generate User Data' found.</status>
+<status status="PASS" start="2025-09-22T16:00:44.084240" elapsed="1.687004"/>
 </test>
-<status status="FAIL" start="2025-09-21T16:16:46.056869" elapsed="6.138584"/>
+<status status="PASS" start="2025-09-22T16:00:40.140985" elapsed="5.632931"/>
 </suite>
-<status status="FAIL" start="2025-09-21T16:16:40.607088" elapsed="11.597508"/>
+<status status="PASS" start="2025-09-22T16:00:30.744409" elapsed="15.037451"/>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="2" skip="0">All Tests</stat>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Tests" id="s1" pass="3" fail="2" skip="0">Tests</stat>
+<stat name="Tests" id="s1" pass="5" fail="0" skip="0">Tests</stat>
 <stat name="Headers" id="s1-s1" pass="1" fail="0" skip="0">Tests.Headers</stat>
 <stat name="Post Data" id="s1-s2" pass="1" fail="0" skip="0">Tests.Post Data</stat>
-<stat name="Test Httpbin" id="s1-s3" pass="1" fail="2" skip="0">Tests.Test Httpbin</stat>
+<stat name="Test Httpbin" id="s1-s3" pass="3" fail="0" skip="0">Tests.Test Httpbin</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-09-21T16:16:41.835454" level="ERROR">Error in file 'C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\resources\keywords.robot' on line 5: Importing library 'C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\utils\retry_decorator.py' failed: ModuleNotFoundError: No module named 'utils'
+<msg time="2025-09-22T16:00:31.825750" level="ERROR">Error in file 'C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\resources\keywords.robot' on line 5: Importing library 'C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\utils\retry_decorator.py' failed: ModuleNotFoundError: No module named 'utils'
 Traceback (most recent call last):
   File "C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\utils\retry_decorator.py", line 3, in &lt;module&gt;
     from utils.config_loader import RETRY  # make sure this file exists
@@ -399,14 +443,15 @@ PYTHONPATH:
   C:\Program Files\Python312
   C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\.venv
   C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\.venv\Lib\site-packages</msg>
-<msg time="2025-09-21T16:16:41.872910" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
-<msg time="2025-09-21T16:16:43.469407" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
-<msg time="2025-09-21T16:16:43.516952" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
-<msg time="2025-09-21T16:16:46.072878" level="ERROR">Error in file 'C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\tests\test_httpbin.robot' on line 4: Library 'data_generator.py' does not exist.</msg>
-<msg time="2025-09-21T16:16:46.073873" level="ERROR">Error in file 'C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\tests\test_httpbin.robot' on line 5: Library 'httpbin_library.py' does not exist.</msg>
-<msg time="2025-09-21T16:16:46.080873" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
-<msg time="2025-09-21T16:16:49.906580" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
-<msg time="2025-09-21T16:16:49.925572" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
-<msg time="2025-09-21T16:16:52.187453" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-09-22T16:00:31.859487" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-09-22T16:00:37.547999" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-09-22T16:00:37.613551" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-09-22T16:00:40.152503" level="ERROR">Error in file 'C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\tests\test_httpbin.robot' on line 4: Resource file 'resources\data_generator.robot' does not exist.</msg>
+<msg time="2025-09-22T16:00:40.152503" level="ERROR">Error in file 'C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\tests\test_httpbin.robot' on line 5: Library 'data_generator.py' does not exist.</msg>
+<msg time="2025-09-22T16:00:40.153505" level="ERROR">Error in file 'C:\Users\aryamol.m.DC\PycharmProjects\robot-httpbin-assignment\tests\test_httpbin.robot' on line 6: Library 'httpbin_library.py' does not exist.</msg>
+<msg time="2025-09-22T16:00:40.159018" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-09-22T16:00:42.892843" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-09-22T16:00:42.922079" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-09-22T16:00:44.094329" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
 </errors>
 </robot>

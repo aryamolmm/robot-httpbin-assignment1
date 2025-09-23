@@ -1,14 +1,13 @@
-# Start from the official Jenkins Long-Term Support (LTS) image.
+# Start from Jenkins LTS image
 FROM jenkins/jenkins:lts
 
-# Switch to the root user to gain the necessary permissions to install software.
-# The default 'jenkins' user does not have these privileges.
+# Switch to root to install packages
 USER root
 
-# Update the package lists and install Python 3 and its package manager, pip.
-# The '-y' flag automatically confirms the installation.
-RUN apt-get update && apt-get install -y python3 python3-pip
+# Install Python 3, pip, and venv support
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip python3-venv && \
+    rm -rf /var/lib/apt/lists/*
 
-# Switch back to the 'jenkins' user. This is a security best practice
-# to avoid running the Jenkins service with administrator privileges.
+# Switch back to jenkins user (security best practice)
 USER jenkins

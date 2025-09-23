@@ -1,33 +1,23 @@
+version: '3.8'
+
 services:
-  api:
-    image: kennethreitz/httpbin   # use official httpbin image
-    ports:
-      - "8000:80"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:80/get"]
-      interval: 5s
-      retries: 5
-      timeout: 2s
+  robot-tests:
+    build: .
+    container_name: robot-tests
+    volumes:
+      - .:/app
+    depends_on:
+      - rabbitmq
+    environment:
+      RABBITMQ_HOST: rabbitmq
+    command: bash robot_run.sh
 
   rabbitmq:
     image: rabbitmq:3-management
+    container_name: rabbitmq
     ports:
-      - "5672:5672"   # broker port
-      - "15672:15672" # management UI (http://localhost:15672)
-    healthcheck:
-      test: ["CMD", "rabbitmqctl", "status"]
-      interval: 5s
-      retries: 5
-      timeout: 2s
-
-  tests:
-    build: .
-    depends_on:
-      api:
-        condition: service_healthy
-      rabbitmq:
-        condition: service_healthy
-    volumes:
-      - .:/tests
-    working_dir: /tests
-    command: robot -d reports tests/
+      - "5672:5672"   # RabbitMQ messaging
+      - "15672:15672" # RabbitMQ management UI
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest

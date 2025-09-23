@@ -13,19 +13,20 @@ class PikaLibrary:
         self.connection = pika.BlockingConnection(params)
         self.channel = self.connection.channel()
 
-    def publish_message(self, queue, message, durable=False):
-        self.channel.queue_declare(queue=queue, durable=durable)
-        body = json.dumps(message) if not isinstance(message, str) else message
-        self.channel.basic_publish(exchange='', routing_key=queue, body=body)
+    def create_queue(self, queue):
+        self.channel.queue_declare(queue=queue)
+
+    def publish_message(self, queue, message):
+        self.channel.basic_publish(exchange='', routing_key=queue, body=message)
 
     def consume_message(self, queue, timeout=5):
-        start = time.time()
-        while time.time() - start < timeout:
-            method, header, body = self.channel.basic_get(queue=queue, auto_ack=True)
-            if method:
-                return body.decode()
-            time.sleep(0.2)
-        return None
+        method_frame, header_frame, body = self.channel.basic_get(queue=queue, auto_ack=True)
+        start_time = time.time()
+        while method_frame is None:
+            if time.time() - start_time > timeout:
+                raise Exception("Timeout waiting for message")
+            method_frame, header_frame, body = self.channel.basic_get(queue=queue, auto_ack=True)
+        return body.decode()
 
     def close_connection(self):
         if self.connection:

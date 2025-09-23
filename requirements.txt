@@ -7,4 +7,4 @@ Faker
 python-dotenv
 PyYAML
 allure-robotframework
-pika
+

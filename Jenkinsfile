@@ -4,17 +4,31 @@ pipeline {
     environment {
         VENV_DIR = "${WORKSPACE}/venv"
         ALLURE_RESULTS = "${WORKSPACE}/allure-results"
-        DOCKER_IMAGE = "aryamolmm/robot-httpbin:latest" // Change to your Docker Hub repo
-        DEPLOY_HOST = "your.server.com"
-        DEPLOY_USER = "username"
-        DEPLOY_DIR = "/path/to/deploy"
+        RABBITMQ_HOST = "localhost"
+        RABBITMQ_PORT = "5672"
     }
 
     stages {
 
         stage('Checkout') {
             steps {
+                // Checkout your Git repository
                 git url: 'https://github.com/aryamolmm/robot-httpbin-assignment.git', branch: 'main'
+            }
+        }
+
+        stage('Start RabbitMQ') {
+            steps {
+                sh """
+                docker run -d --rm \
+                    --name rabbitmq \
+                    -p 5672:5672 -p 15672:15672 \
+                    -e RABBITMQ_DEFAULT_USER=guest \
+                    -e RABBITMQ_DEFAULT_PASS=guest \
+                    rabbitmq:3-management
+                """
+                // Give RabbitMQ a few seconds to initialize
+                sleep 10
             }
         }
 
@@ -45,6 +59,7 @@ pipeline {
                 mkdir -p ${ALLURE_RESULTS}
                 cp output.xml ${ALLURE_RESULTS}/
                 """
+
                 allure([
                     includeProperties: false,
                     results: [[path: "${ALLURE_RESULTS}"]],
@@ -53,39 +68,9 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Stop RabbitMQ') {
             steps {
-                sh """
-                docker build -t ${DOCKER_IMAGE} .
-                """
-            }
-        }
-
-        stage('Push Docker Image') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                    sh """
-                    echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-                    docker push ${DOCKER_IMAGE}
-                    """
-                }
-            }
-        }
-
-        stage('Deploy Docker Container') {
-            when {
-                branch 'main'
-            }
-            steps {
-                echo "Deploying Docker container to server..."
-                sh """
-                ssh ${DEPLOY_USER}@${DEPLOY_HOST} '
-                    docker pull ${DOCKER_IMAGE} &&
-                    docker stop robot-httpbin || true &&
-                    docker rm robot-httpbin || true &&
-                    docker run -d --name robot-httpbin -p 8080:8080 ${DOCKER_IMAGE}
-                '
-                """
+                sh "docker stop rabbitmq || true"
             }
         }
     }

@@ -4,15 +4,13 @@ pipeline {
     environment {
         VENV_DIR = "${WORKSPACE}/venv"
         ALLURE_RESULTS = "${WORKSPACE}/allure-results"
-        RABBITMQ_HOST = "localhost"
-        RABBITMQ_PORT = "5672"
+        RABBITMQ_CONTAINER = "rabbitmq_test"
     }
 
     stages {
 
         stage('Checkout') {
             steps {
-                // Checkout your Git repository
                 git url: 'https://github.com/aryamolmm/robot-httpbin-assignment.git', branch: 'main'
             }
         }
@@ -20,15 +18,14 @@ pipeline {
         stage('Start RabbitMQ') {
             steps {
                 sh """
-                docker run -d --rm \
-                    --name rabbitmq \
-                    -p 5672:5672 -p 15672:15672 \
-                    -e RABBITMQ_DEFAULT_USER=guest \
-                    -e RABBITMQ_DEFAULT_PASS=guest \
-                    rabbitmq:3-management
-                """
-                // Give RabbitMQ a few seconds to initialize
+                # Stop any old container
+                docker rm -f ${RABBITMQ_CONTAINER} || true
+
+                # Start RabbitMQ container
+                docker run -d --name ${RABBITMQ_CONTAINER} -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+                echo "RabbitMQ started at http://localhost:15672"
                 sleep 10
+                """
             }
         }
 
@@ -70,7 +67,7 @@ pipeline {
 
         stage('Stop RabbitMQ') {
             steps {
-                sh "docker stop rabbitmq || true"
+                sh "docker stop ${RABBITMQ_CONTAINER} || true"
             }
         }
     }
@@ -79,6 +76,7 @@ pipeline {
         always {
             echo "Pipeline finished. Check Allure report for details."
             archiveArtifacts artifacts: 'allure-results/**', allowEmptyArchive: true
+            sh "docker rm -f ${RABBITMQ_CONTAINER} || true"
         }
     }
 }
